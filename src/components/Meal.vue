@@ -60,7 +60,7 @@ export default defineComponent({
     };
 
     return {
-      ...state,
+      ...state.value,
       dispatch,
       getMeal
     };
