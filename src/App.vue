@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-full">
     <greeting-vue />
     <meal-vue />
     <footer-vue />
@@ -24,11 +24,10 @@ export default defineComponent({
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+  height: calc(100vh - 60px);
 }
 </style>

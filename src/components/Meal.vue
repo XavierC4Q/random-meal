@@ -1,21 +1,32 @@
 <template>
-  <div id="meal-vue"></div>
+  <div id="meal-vue" class="">
+    <div
+      v-if="loading"
+      class="animate-spin m-auto w-10 h-10 text-green-600"
+    ></div>
+    <div v-if="!loading && meal">
+      <img
+        :src="meal.strMealThumb"
+        :alt="meal.strMeal"
+        class="h-96 mx-auto mt-6 rounded-md w-96"
+      />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
-import fetch from "isomorphic-unfetch";
-import { IAsyncState, Reducer } from "../types/index";
-import asyncReducer from "../composables/asyncReducer";
+import useFetchMeal from "@/composables/useFetchMeal";
+import { IAsyncState, Reducer } from "@/types";
+import { computed, defineComponent } from "@vue/runtime-core";
 
 export default defineComponent({
   name: "Meals",
   setup() {
-    const initialState = {
+    const initState = () => ({
       loading: false,
       error: false,
       meal: null,
-    };
+    });
 
     const reducer: Reducer<IAsyncState> = (state, action) => {
       switch (action.type) {
@@ -42,32 +53,23 @@ export default defineComponent({
       }
     };
 
-    const [state, dispatch] = asyncReducer(reducer, initialState);
+    const state = useFetchMeal(reducer, initState());
 
-    const getMeal = async () => {
-      dispatch({ type: "loading" });
-
-      try {
-        const req = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/random.php"
-        );
-        const data = await req.json();
-
-        dispatch({ type: "success", payload: data.meals[0] });
-      } catch {
-        dispatch({ type: "error" });
-      }
-    };
+    const loading = computed(() => state.loading);
+    const error = computed(() => state.error)
+    const meal = computed(() => state.meal)
 
     return {
-      ...state.value,
-      dispatch,
-      getMeal
+      loading,
+      error,
+      meal
     };
   },
-
-  mounted() {
-    this.getMeal();
-  }
 });
 </script>
+
+<style lang="css">
+#meal-vue {
+  min-height: calc(100% - 90px);
+}
+</style>

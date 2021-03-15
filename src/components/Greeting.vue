@@ -1,11 +1,10 @@
 <template>
   <div>
-    <h1 class="font-mono capitalize text-xl font-bold">
+    <h1 class="font-mono capitalize font-bold text-2xl">
       Feeling Hungry but not sure what to make? Let me help you out!
     </h1>
-    <p>
-      Vue-Meals allows you to, well, view meals! Have a look at all
-      our culinary delights and get some food-spiration
+    <p class="text-lg">
+      Vue-Meals allows you to, well, view meals! Check out a random meal and get some food-spiration!
     </p>
   </div>
 </template>

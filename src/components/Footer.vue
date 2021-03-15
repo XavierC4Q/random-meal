@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <footer class="absolute bottom-0 w-full left-0 right-0 h-8 bg-green-600">
+    Footer footeer
+  </footer>
 </template>
 
 <script lang="ts">
