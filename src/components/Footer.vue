@@ -1,5 +1,7 @@
 <template>
-  <footer class="absolute bottom-0 w-full left-0 right-0 h-8 bg-green-600">
+  <footer
+    class="absolute bottom-0 w-full left-0 right-0 h-8 bg-green-600 top-full"
+  >
     Footer footeer
   </footer>
 </template>
