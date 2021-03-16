@@ -9,10 +9,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from "@vue/runtime-core";
-
-interface IMeal {
-  [key: string]: string | null;
-}
+import { IMeal } from '../types/index';
 
 export default defineComponent({
   name: "Ingredients",

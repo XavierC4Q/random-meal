@@ -11,17 +11,7 @@
         class="h-4/5 mt-6 rounded-md w-4/5 self-center"
       />
       <h2 class="text-xl font-mono font-bold">{{ meal.strMeal }}</h2>
-      <div
-        class="flex sm:flex-row flex-col sm:w-4/5 mt-4 sm:justify-between mx-auto"
-      >
-        <h4>
-          <span class="font-bold font-mono">Region:</span> {{ meal.strArea }}
-        </h4>
-        <h4>
-          <span class="font-bold font-mono">Category:</span>
-          {{ meal.strCategory }}
-        </h4>
-      </div>
+      <meal-info-vue :meal="meal" />
       <ingredients-vue :meal="meal" />
     </div>
   </div>
@@ -32,11 +22,13 @@ import useFetchMeal from "@/composables/useFetchMeal";
 import { IAsyncState, Reducer } from "@/types";
 import { computed, defineComponent } from "@vue/runtime-core";
 import IngredientsVue from "./Ingredients.vue";
+import MealInfoVue from "./MealInfo.vue";
 
 export default defineComponent({
   name: "Meals",
   components: {
     IngredientsVue,
+    MealInfoVue,
   },
   setup() {
     const initState = () => ({
