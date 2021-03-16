@@ -1,18 +1,18 @@
 <template>
-  <div id="meal-vue" class="">
+  <div id="meal-vue" class="md:max-w-3xl mx-auto max-w-full">
     <div
       v-if="loading"
       class="animate-spin m-auto w-10 h-10 text-green-600"
     ></div>
-    <div v-if="!loading && meal">
+    <div v-if="!loading && meal" class="flex flex-col">
       <img
         :src="meal.strMealThumb"
         :alt="meal.strMeal"
-        class="h-96 mx-auto mt-6 rounded-md md:w-96 w-72"
+        class="h-4/5 mt-6 rounded-md w-4/5 self-center"
       />
       <h2 class="text-xl font-mono font-bold">{{ meal.strMeal }}</h2>
       <div
-        class="flex md:flex-row flex-col md:w-96 mt-4 md:justify-between mx-auto"
+        class="flex sm:flex-row flex-col sm:w-4/5 mt-4 sm:justify-between mx-auto"
       >
         <h4>
           <span class="font-bold font-mono">Region:</span> {{ meal.strArea }}
@@ -88,5 +88,6 @@ export default defineComponent({
 <style lang="css">
 #meal-vue {
   min-height: calc(100% - 90px);
+  margin-bottom: 1.6rem;
 }
 </style>

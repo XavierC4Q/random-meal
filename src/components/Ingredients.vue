@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-4 sm:w-4/5 text-left mx-auto">
     <h4 class="font-bold font-mono">Ingredients</h4>
     <ul>
       <li v-for="(ingredient, i) in ingredients" :key="i">{{ ingredient }}</li>
