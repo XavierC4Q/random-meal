@@ -11,7 +11,7 @@
         class="h-4/5 mt-6 rounded-md w-4/5 self-center"
       />
       <h2 class="text-xl font-mono font-bold">{{ meal.strMeal }}</h2>
-      <meal-info-vue :meal="meal" />
+      <meal-info-vue :meal="meal" :videoId="videoId" />
       <ingredients-vue :meal="meal" />
     </div>
   </div>
@@ -67,11 +67,20 @@ export default defineComponent({
     const loading = computed(() => state.loading);
     const error = computed(() => state.error);
     const meal = computed(() => state.meal);
+    const videoId = computed(() =>
+      meal.value && meal.value.strYoutube
+        ? meal.value.strYoutube
+            .split("")
+            .splice(meal.value.strYoutube.split("").indexOf("=") + 1)
+            .join("")
+        : ""
+    );
 
     return {
       loading,
       error,
       meal,
+      videoId,
     };
   },
 });

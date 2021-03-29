@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@techassi/vue-youtube-iframe": "^1.0.6",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "isomorphic-unfetch": "^3.1.0",

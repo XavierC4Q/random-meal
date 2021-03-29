@@ -1,5 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./styles/index.css";
+import YoutubeIframe from "@techassi/vue-youtube-iframe";
 
-createApp(App).mount("#app");
+createApp(App)
+  .use(YoutubeIframe)
+  .mount("#app");
